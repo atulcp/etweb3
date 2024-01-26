@@ -42,7 +42,7 @@ const Cards = ({ onCardChange }) => {
   return (
     <div className="flex flex-col items-center justify-center">
       {cardContents.slice(0, currentIndex + 1).map((content, index) => (
-        <div key={index} className="p-4 w-96 rounded-full z-40 shadow-lg shadow-gray-200 border-double border border-black bg-cover text-gray-400 mx-auto my-2 text-xl font-extralight hover:bg-orange-600 hover:text-white hover:cursor-pointer hover:border-orange-600" style={{backgroundImage: `url(${bgImg9})`,}}>
+        <div key={index} className="p-4 w-96 rounded-full z-40 shadow-lg shadow-gray-200 border-double border border-black bg-cover text-orange-600 mx-auto my-2 text-xl font-extralight hover:bg-orange-600 hover:text-white hover:cursor-pointer hover:border-orange-600" style={{backgroundImage: `url(${bgImg9})`,}}>
           {content}
         </div>
       ))}
