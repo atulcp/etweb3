@@ -33,7 +33,8 @@ const App = () => {
   }
 
   const currentImage = isCardDisplayed ? bgImg12 : imageInfo[currentImageIndex].src
-  const currentTextColor = currentImage.imageBgType === 'dark' ? 'text-orange-600' : 'text-black'
+  // const currentTextColor = isCardDisplayed ? 'text-orange-600' : ( imageInfo[currentImageIndex].imageBgType === 'dark' ? 'text-orange-600' : 'text-black' ) 
+  const currentTextColor = imageInfo[currentImageIndex].imageBgType === 'dark' ? 'text-orange-600' : 'text-black'
 
   return (
     <div 
