@@ -32,6 +32,14 @@ import bgImg6 from './pics/bgImg6.png'
 import bgImg7 from './pics/bgImg7.png'
 import bgImg8 from './pics/bgImg8.png'
 import bgImg9 from './pics/bgImg9.png'
+import bgImg10 from './pics/bgImg10.png'
+import bgImg11 from './pics/bgImg11.png'
+import bgImg12 from './pics/bgImg12.png'
+import bgImg13 from './pics/bgImg13.png'
+import bgImg14 from './pics/bgImg14.png'
+import bgImg15 from './pics/bgImg15.png'
+import bgImg16 from './pics/bgImg16.png'
+import bgImg17 from './pics/bgImg17.png'
 import expImg1 from './pics/expImg1.png'
 import brainImg1 from './pics/brainImg1.png'
 import brainImg2 from './pics/brainImg2.png'
@@ -86,6 +94,14 @@ export {
     bgImg7,
     bgImg8,
     bgImg9,
+    bgImg10,
+    bgImg11,
+    bgImg12,
+    bgImg13,
+    bgImg14,
+    bgImg15,
+    bgImg16,
+    bgImg17,
     expImg1,
     brainImg1,
     brainImg2,

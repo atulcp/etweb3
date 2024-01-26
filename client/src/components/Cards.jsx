@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
+import { bgImg9 } from '../assets/img/imgAssets'
 
 const Cards = ({ onCardChange }) => {
   const [currentIndex, setCurrentIndex] = useState(-1)
 
-  // Define your card contents here.
   const cardContents = [
     "Welcome!",
     "Et Makers",
@@ -12,7 +12,7 @@ const Cards = ({ onCardChange }) => {
     "EtON - Launch"
   ]
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = useCallback((event) => {
     switch (event.key) {
       case 'ArrowRight':
       case 'ArrowDown':
@@ -25,7 +25,7 @@ const Cards = ({ onCardChange }) => {
       default:
         break
     }
-  }
+  }, [cardContents.length]) // Dependency array
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown)
@@ -33,24 +33,16 @@ const Cards = ({ onCardChange }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [])
+  }, [handleKeyDown]) // Updated dependency array
 
   useEffect(() => {
-    onCardChange(currentIndex)  // Notify parent component about the index change
+    onCardChange(currentIndex) 
   }, [currentIndex, onCardChange])
 
   return (
     <div className="flex flex-col items-center justify-center">
       {cardContents.slice(0, currentIndex + 1).map((content, index) => (
-        <div key={index} className="
-        p-4 w-96 rounded-full
-        z-40 shadow-lg shadow-gray-200 
-        border-double border border-black 
-        bg-black text-gray-400 
-        mx-auto my-2 
-        text-xl font-extralight
-        hover:bg-orange-600 hover:text-white  hover:cursor-pointer hover:border-orange-600
-        ">
+        <div key={index} className="p-4 w-96 rounded-full z-40 shadow-lg shadow-gray-200 border-double border border-black bg-cover text-gray-400 mx-auto my-2 text-xl font-extralight hover:bg-orange-600 hover:text-white hover:cursor-pointer hover:border-orange-600" style={{backgroundImage: `url(${bgImg9})`,}}>
           {content}
         </div>
       ))}
