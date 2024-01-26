@@ -1,0 +1,20 @@
+/* custom-scrollbar.css */
+/* You can adjust these styles according to your preference */
+/* This example makes the scrollbar thinner and removes arrows */
+
+/* Track */
+::-webkit-scrollbar {
+    width: 1px;
+  }
+  
+  /* Thumb */
+  ::-webkit-scrollbar-thumb {
+    /* background: #f6f3f3; Change the color as needed */
+    border-radius: 1px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f3f1f1; /* Change the color on hover if desired */
+  }
+  
