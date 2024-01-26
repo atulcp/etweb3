@@ -1,7 +1,7 @@
 import { bgImg9 } from './assets/img/imgAssets'  
 const App = () => {
   return (
-    <div className="font-oswald font-extrabold text-6xl h-screen flex justify-center items-center" 
+    <div className="font-oswald font-extrabold text-6xl min-h-screen flex justify-center items-center" 
     
     style={{backgroundImage: `url(${bgImg9})`,
     backgroundSize: "100%",
