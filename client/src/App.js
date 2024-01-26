@@ -12,7 +12,7 @@ const App = () => {
     >
       <div className='flex flex-col items-center justify-center'>
         <p className='py-1'>Hello</p>
-        <p className='py-1 text-lg text-orange-600 font-extralight'>A new Eternity is in the making. Check back soon</p>
+        <p className='py-1 text-lg text-orange-600 font-extralight'>A new Eternity is in the making. Check back soon.</p>
       </div>
       
     </div>
