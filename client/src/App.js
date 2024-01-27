@@ -38,20 +38,25 @@ const App = () => {
 
   return (
     <div 
-      className="font-oswald font-extrabold text-6xl min-h-screen flex justify-center items-center"
-      style={{
-        backgroundImage: `url(${currentImage})`,
-        backgroundSize: "100%",
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: "fixed",
-        backgroundPosition: 'center',
-      }}
+      // className="font-oswald font-extrabold text-6xl min-h-screen flex justify-center items-center"
+      // style={{
+      //   backgroundImage: `url(${currentImage})`,
+      //   backgroundSize: "100%",
+      //   backgroundRepeat: 'no-repeat',
+      //   backgroundAttachment: "fixed",
+      //   backgroundPosition: 'center',
+      // }}
+
+      className={`font-oswald font-extrabold text-4xl md:text-6xl min-h-screen flex justify-center items-center bg-no-repeat bg-fixed bg-center ${
+        isCardDisplayed ? 'bg-cover' : 'bg-cover'
+      }`}
+      style={{ backgroundImage: `url(${currentImage})` }}
     >
       <div className='flex flex-col items-center justify-center'>
         {!isCardDisplayed && (
           <>
             <p className={`py-1 ${currentTextColor}`}>Hello</p>
-            <p className={`py-1 text-lg font-extralight ${currentTextColor}`}>A new Eternity is in the making. Check back soon.</p>
+            <p className={`py-1 text-sm md:text-lg font-extralight ${currentTextColor}`}>A new Eternity is in the making. Check back soon.</p>
           </>
         )}
         <Cards onCardChange={handleCardChange} />
