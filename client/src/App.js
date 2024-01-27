@@ -39,10 +39,16 @@ const App = () => {
     const isLeftSwipe = distance > minSwipeDistance
     const isRightSwipe = distance < -minSwipeDistance
 
-    // You can trigger the same action as your arrow press here
-    if (isLeftSwipe || isRightSwipe) {
-      // Example: Toggle card display or navigate through cards
-      setIsCardDisplayed(!isCardDisplayed)
+    // // You can trigger the same action as your arrow press here
+    // if (isLeftSwipe || isRightSwipe) {
+    //   // Example: Toggle card display or navigate through cards
+    //   setIsCardDisplayed(!isCardDisplayed)
+    // }
+
+    if (isLeftSwipe) {
+      setIsCardDisplayed(true) // Or specific logic for left swipe
+    } else if (isRightSwipe) {
+      setIsCardDisplayed(false) // Or specific logic for right swipe
     }
   }
 
