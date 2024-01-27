@@ -5,10 +5,11 @@ import Cards from './components/Cards'
 const App = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isCardDisplayed, setIsCardDisplayed] = useState(false)
+  // Touch points for swipe gesture
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
 
-  // const images = [bgImg10, bgImg11,bgImg12, bgImg13,bgImg14,bgImg15,bgImg16,bgImg17 ] // Array of images
-  // const textColors = ['text-black','text-black', 'text-orange-600','text-orange-600','text-black','text-black','text-black','text-black' ]
-
+  
   const imageInfo = [
     {src: bgImg10, imageBgType: 'light'},
     {src: bgImg11, imageBgType: 'light'},
@@ -19,6 +20,31 @@ const App = () => {
     {src: bgImg16, imageBgType: 'light'},
     {src: bgImg17, imageBgType: 'light'},
   ]
+
+  // Minimum swipe distance
+  const minSwipeDistance = 50
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null) // Reset touchEnd to null on new touch
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    // You can trigger the same action as your arrow press here
+    if (isLeftSwipe || isRightSwipe) {
+      // Example: Toggle card display or navigate through cards
+      setIsCardDisplayed(!isCardDisplayed)
+    }
+  }
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -33,24 +59,15 @@ const App = () => {
   }
 
   const currentImage = isCardDisplayed ? bgImg12 : imageInfo[currentImageIndex].src
-  // const currentTextColor = isCardDisplayed ? 'text-orange-600' : ( imageInfo[currentImageIndex].imageBgType === 'dark' ? 'text-orange-600' : 'text-black' ) 
   const currentTextColor = imageInfo[currentImageIndex].imageBgType === 'dark' ? 'text-orange-600' : 'text-black'
 
   return (
     <div 
-      // className="font-oswald font-extrabold text-6xl min-h-screen flex justify-center items-center"
-      // style={{
-      //   backgroundImage: `url(${currentImage})`,
-      //   backgroundSize: "100%",
-      //   backgroundRepeat: 'no-repeat',
-      //   backgroundAttachment: "fixed",
-      //   backgroundPosition: 'center',
-      // }}
-
-      className={`font-oswald font-extrabold text-4xl md:text-6xl min-h-screen flex justify-center items-center bg-no-repeat bg-fixed bg-center ${
-        isCardDisplayed ? 'bg-cover' : 'bg-cover'
-      }`}
+      className={`font-oswald font-extrabold text-4xl md:text-6xl min-h-screen flex justify-center items-center bg-no-repeat bg-fixed bg-center bg-cover`}
       style={{ backgroundImage: `url(${currentImage})` }}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       <div className='flex flex-col items-center justify-center'>
         {!isCardDisplayed && (
